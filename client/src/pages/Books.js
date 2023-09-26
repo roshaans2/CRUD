@@ -28,7 +28,7 @@ export default function Books(){
     }
 
     return(
-        <div>
+        <div className="form">
             <h1>Book Shop</h1>
             <div className="books">
                 {books.map((book)=>(
@@ -38,7 +38,7 @@ export default function Books(){
                         <p>{book.descp}</p>
                         <span>{book.price}</span>
                         <button className="delete" onClick={()=>handleDelete(book.id)}>delete</button>
-                        <button className="update">update</button>
+                        <button className="update"><Link to={`/update/${book.id}`}>update</Link></button>
                     </div>
                 ))}
             </div>

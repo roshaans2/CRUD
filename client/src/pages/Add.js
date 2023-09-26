@@ -26,13 +26,13 @@ export default function Add(){
     }
 
     return (
-        <div>
+        <div className="form">
             <h1>Add new book</h1>
             <input type="text" placeholder="title" onChange={handleChange} name="title"/>
             <input type="text" placeholder="desc"  onChange={handleChange} name="descp"/>
             <input type="number" placeholder="price" onChange={handleChange} name="price"/>
             <input type="text" placeholder="cover pic" onChange={handleChange} name="cover"/>
-            <button onClick={handleClick}>Add</button>
+            <button onClick={handleClick} className="formButton">Add</button>
         </div>
     )
 }
