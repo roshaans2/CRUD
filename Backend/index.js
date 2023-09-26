@@ -27,10 +27,11 @@ app.get("/books",(req,res)=>{
 })
 
 app.post("/books",(req,res)=>{
-    const q = "INSERT INTO books (`title`,`descp`,`cover`) VALUES (?,?,?)"
+    const q = "INSERT INTO books (`title`,`descp`,`price`,`cover`) VALUES (?,?,?,?)"
     const values = [
         req.body.title,
         req.body.descp,
+        req.body.price,
         req.body.cover
     ]
 
@@ -40,6 +41,15 @@ app.post("/books",(req,res)=>{
     })
 })
 
+app.delete("/books:id",(req,res)=>{
+    const bookId = req.params.id;
+    const q = "DELETE FROM books WHERE id = ?"
+
+    db.query(q,[bookId],(err,data)=>{
+        if(err) res.json(err)
+        return res.json("Book has been deleted successfully")
+    })
+})
 
 app.listen(8000,()=>{
     console.log("Connected to Backend");
